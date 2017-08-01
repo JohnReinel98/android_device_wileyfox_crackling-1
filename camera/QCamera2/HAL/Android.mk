@@ -52,9 +52,9 @@ LOCAL_CFLAGS += -DDEFAULT_DENOISE_MODE_ON
 LOCAL_C_INCLUDES := \
         $(LOCAL_PATH)/../stack/common \
         frameworks/native/include/media/openmax \
-        $(call project-path-for,qcom-display)/libgralloc \
+        $(TOP)/hardware/qcom/display-caf-msm8916/libgralloc \
         $(call project-path-for,qcom-display)/libqdutils \
-        $(call project-path-for,qcom-media)/libstagefrighthw \
+        $(TOP)/hardware/qcom/media-caf-msm8916/libstagefrighthw \
         system/media/camera/include \
         $(LOCAL_PATH)/../../mm-image-codec/qexif \
         $(LOCAL_PATH)/../../mm-image-codec/qomx_core \
@@ -68,14 +68,14 @@ LOCAL_CFLAGS += -DUSE_KK_CODE
 endif
 
 LOCAL_C_INCLUDES += \
-        $(TARGET_OUT_HEADERS)/qcom/display
+        $(TARGET_OUT_HEADERS)/qcom/display-caf-msm8916
 LOCAL_C_INCLUDES += \
-        $(call project-path-for,qcom-display)/libqservice
+        $(TOP)/hardware/qcom/display-caf-msm8916/libqservice
 
 #ifeq ($(TARGET_USE_VENDOR_CAMERA_EXT),true)
 #LOCAL_C_INCLUDES += $(call project-path-for,qcom-display)/libgralloc
 #else
-LOCAL_C_INCLUDES += $(call project-path-for,qcom-display)/libgralloc
+LOCAL_C_INCLUDES += $(TOP)/hardware/qcom/display-caf-msm8916/libgralloc
 #endif
 LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include/media

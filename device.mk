@@ -28,7 +28,7 @@ PRODUCT_PACKAGES += \
 
 # Screen density
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=320
+    ro.sf.lcd_density=300
 
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
@@ -61,8 +61,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8916 \
-    libmm-qcamera \
-    Snap
+    libmm-qcamera
+
+# Charger
+  PRODUCT_PACKAGES += \
+    omni_charger_res_images
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -373,10 +376,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
     $(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
     $(LOCAL_PATH)/configs/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini
-
-# Recovery
-PRODUCT_PACKAGES += \
-    librecovery_updater_cm
 
 # Permissions
 PRODUCT_COPY_FILES += \

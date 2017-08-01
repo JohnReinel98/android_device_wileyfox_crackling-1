@@ -52,11 +52,18 @@ BOARD_KERNEL_SEPARATED_DT := true
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET     := 0x02000000
 ENABLE_CPUSETS := true
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_SOURCE := kernel/cyanogen/msm8916
 TARGET_KERNEL_CONFIG := lineageos_crackling_defconfig
+SYSTEM_PARSE_LEGACY_KERNEL_CMDLINE_BOARDID := true
 ifneq ($(FORCE_32_BIT),true)
 TARGET_USES_UNCOMPRESSED_KERNEL := true
 endif
+
+TARGET_GCC_VERSION_EXP := 4.9
+KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.9/bin
+KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
 
 # Ant+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
@@ -89,16 +96,11 @@ BOARD_USES_CYANOGEN_HARDWARE := true
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
 TARGET_KEYMASTER_WAIT_FOR_QSEE := true
+TARGET_CRYPTFS_HW_PATH := device/wileyfox/crackling/cryptfs_hw
 
 # Dex
-ifeq ($(HOST_OS),linux)
-    ifeq ($(TARGET_BUILD_VARIANT),user)
-        ifeq ($(WITH_DEXPREOPT),)
-            WITH_DEXPREOPT := true
-            WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
-        endif
-    endif
-endif
+WITH_DEXPREOPT := false
+WITH_DEXPREOPT_BOOT_IMG_ONLY ?= false
 
 # Display
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
@@ -113,8 +115,10 @@ USE_OPENGL_RENDERER := true
 
 # FM
 AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
+BOARD_DISABLE_FMRADIO_LIBJNI =true
 BOARD_HAVE_QCOM_FM := true
 TARGET_QCOM_NO_FM_FIRMWARE := true
+BOARD_HAVE_FM_RADIO := true
 
 # Fileysystem
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -124,6 +128,12 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 # GPS
 TARGET_NO_RPC := true
 USE_DEVICE_SPECIFIC_GPS := true
+
+# Hals
+TARGET_QCOM_AUDIO_VARIANT := caf-msm8916
+TARGET_QCOM_MEDIA_VARIANT := caf-msm8916
+TARGET_QCOM_DISPLAY_VARIANT := caf-msm8916
+TARGET_QCOM_BLUETOOTH_VARIANT := caf-msm8916
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_msm8916
@@ -165,7 +175,7 @@ TARGET_RECOVERY_FSTAB := device/wileyfox/crackling/rootdir/etc/fstab.qcom
 TARGET_RELEASETOOLS_EXTENSIONS := $(PLATFORM_PATH)
 
 # RIL
-TARGET_RIL_VARIANT := caf
+#TARGET_RIL_VARIANT := caf
 
 # Sepolicy
 include device/qcom/sepolicy/sepolicy.mk

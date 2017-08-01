@@ -14,13 +14,19 @@
 
 $(call inherit-product, device/wileyfox/crackling/full_crackling.mk)
 
-# Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+# Get the prebuilt list of APNs
+$(call inherit-product, vendor/omni/config/gsm.mk)
 
+# Inherit from our custom product configuration
+$(call inherit-product, vendor/omni/config/common.mk)
+
+# Bootanimation
+TARGET_BOOTANIMATION_SIZE := 720x407
+  
 # Must define platform variant before including any common things
 TARGET_BOARD_PLATFORM_VARIANT := msm8916
 
-PRODUCT_NAME := lineage_crackling
+PRODUCT_NAME := omni_crackling
 BOARD_VENDOR := wileyfox
 PRODUCT_DEVICE := crackling
 
