@@ -62,8 +62,6 @@ TARGET_USES_UNCOMPRESSED_KERNEL := true
 endif
 
 TARGET_GCC_VERSION_EXP := 4.9
-KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.9/bin
-KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
 
 # Ant+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
@@ -168,7 +166,6 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_POWERHAL_VARIANT := qcom
 
 # Recovery
-TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_cm
 TARGET_RECOVERY_FSTAB := device/wileyfox/crackling/rootdir/etc/fstab.qcom
 
 # Releasetools
