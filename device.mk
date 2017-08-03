@@ -28,13 +28,17 @@ PRODUCT_PACKAGES += \
 
 # Screen density
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=300
+    ro.sf.lcd_density=320
 
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
+
+# Charger
+PRODUCT_PACKAGES += \
+    omni_charger_res_images
 
 # First api level, device has been commercially launched
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -61,11 +65,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8916 \
-    libmm-qcamera
-
-# Charger
-  PRODUCT_PACKAGES += \
-    omni_charger_res_images
+    libmm-qcamera \
+    SnapdragonCamera
 
 # Permissions
 PRODUCT_COPY_FILES += \
