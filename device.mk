@@ -62,6 +62,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
+# Protobuf
+PRODUCT_PACKAGES += \
+    libprotobuf-cpp-full
+
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8916 \

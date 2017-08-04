@@ -37,7 +37,7 @@
 #include <utils/Trace.h>
 #include <gralloc_priv.h>
 #include <QComOMXMetadata.h>
-#include <qdMetaData.h>
+/*#include <qdMetaData.h>*/
 
 #include "QCamera2HWI.h"
 #include "QCameraMem.h"
@@ -1810,7 +1810,7 @@ int QCameraGrallocMemory::allocate(uint8_t count, size_t /*size*/)
         mPrivateHandle[cnt] =
             (struct private_handle_t *)(*mBufferHandle[cnt]);
         //update max fps info
-        setMetaData(mPrivateHandle[cnt], UPDATE_REFRESH_RATE, (void*)&mMaxFPS);
+        /*setMetaData(mPrivateHandle[cnt], UPDATE_REFRESH_RATE, (void*)&mMaxFPS);*/
         mMemInfo[cnt].main_ion_fd = open("/dev/ion", O_RDONLY);
         if (mMemInfo[cnt].main_ion_fd < 0) {
             ALOGE("%s: failed: could not open ion device", __func__);
