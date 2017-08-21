@@ -428,4 +428,5 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     init.target.rc
 
-$(call inherit-product-if-exists, vendor/wileyfox/crackling/crackling-vendor.mk)
+# Call the proprietary setup
+$(call inherit-product, vendor/wileyfox/crackling/crackling-vendor.mk)

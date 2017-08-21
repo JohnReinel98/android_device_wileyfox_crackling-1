@@ -191,5 +191,5 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 CONFIG_EAP_PROXY := qmi
 CONFIG_EAP_PROXY_DUAL_SIM := true
 
-# inherit from proprietary files
+# Inherit from proprietary files
 -include vendor/wileyfox/crackling/BoardConfigVendor.mk
