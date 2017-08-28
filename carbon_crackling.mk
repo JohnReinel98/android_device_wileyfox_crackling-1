@@ -14,13 +14,14 @@
 
 $(call inherit-product, device/wileyfox/crackling/full_crackling.mk)
 
-# Inherit some common MainStageOS stuff.
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+# Inherit some common CarbonRom stuff.
+$(call inherit-product, vendor/carbon/config/common.mk)
+$(call inherit-product, vendor/carbon/config/gsm.mk)
 
 # Must define platform variant before including any common things
 TARGET_BOARD_PLATFORM_VARIANT := msm8916
 
-PRODUCT_NAME := mos_crackling
+PRODUCT_NAME := carbon_crackling
 BOARD_VENDOR := wileyfox
 PRODUCT_DEVICE := crackling
 
